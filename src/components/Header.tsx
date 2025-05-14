@@ -8,40 +8,50 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="text-xl font-bold mr-8">ServiceLink</div>
+            <img
+              src="/images/Logo.png"
+              alt="Service Link Logo"
+              className="h-10 mr-8"
+            />
             <nav className="hidden md:block">
               <ul className="flex space-x-6">
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="#"
+                    className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  >
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="#"
+                    className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  >
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="#"
+                    className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  >
                     How it Works
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a
+                    href="#"
+                    className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  >
                     About
                   </a>
                 </li>
               </ul>
             </nav>
           </div>
+
           <div className="hidden md:flex items-center space-x-4">
-            <Button
-              variant="secondary"
-              size="small"
-              leftIcon={<SearchIcon className="w-4 h-4" />}
-            >
-              Search
-            </Button>
             <Button
               variant="secondary"
               size="small"
@@ -50,6 +60,7 @@ export const Header = () => {
               Sign In
             </Button>
             <Button size="small">Join Now</Button>
+            <Button size="small">Become a Provider</Button>
           </div>
           <button
             className="md:hidden"

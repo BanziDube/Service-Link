@@ -1,13 +1,50 @@
+import Slider from "react-slick";
 import { Button } from "./Button";
 import { SearchIcon } from "lucide-react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const serviceImages = [
+  "./images/clean.jpg",
+  "./images/Plumber.jpg",
+  "./images/electrician-working.jpg",
+  "./images/landscape-gardener.jpg",
+  "./images/image-asset.jpg",
+];
+
+// Slide Show Settings
 export const Hero = () => {
+  const settings = {
+    dots: false,
+    infinite: true, // Ensures looping
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    fade: true,
+  };
+
   return (
-    <section className="py-12 md:py-20 border-b border-gray-200 bg-gray-50">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+    <section className="relative py-12 md:py-20 border-b border-gray-200">
+      <div className="absolute inset-0 z-0">
+        <Slider {...settings}>
+          {serviceImages.map((src, index) => (
+            <div key={index}>
+              <img
+                src={src}
+                alt={`Service ${index + 1}`}
+                className="w-full h-[450px] object-cover"
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
           Find Trusted Domestic Service Providers
         </h1>
-        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-white">
           Connect with verified professionals for cleaning, repairs,
           landscaping, childcare, and more — all in one place.
         </p>
