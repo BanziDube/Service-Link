@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { MenuIcon, XIcon, UserIcon, SearchIcon } from "lucide-react";
 import { Button } from "./Button";
 export const Header = () => {
@@ -60,7 +61,9 @@ export const Header = () => {
               Sign In
             </Button>
             <Button size="small">Join Now</Button>
-            <Button size="small">Become a Provider</Button>
+            <Link to="/provider-signup">
+              <Button size="small">Become a Provider</Button>
+            </Link>
           </div>
           <button
             className="md:hidden"
