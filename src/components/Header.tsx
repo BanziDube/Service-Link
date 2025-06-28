@@ -60,7 +60,7 @@ export const Header = () => {
             >
               Sign In
             </Button>
-            <Button size="small">Join Now</Button>
+            <Button size="small">Register</Button>
             <Link to="/provider-signup">
               <Button size="small">Become a Provider</Button>
             </Link>
