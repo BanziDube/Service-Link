@@ -37,12 +37,12 @@ export const FeaturedProviders = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6">
           Featured Providers
         </h2>
-        <p className="text-center mb-10 max-w-3xl mx-auto text-gray-600">
+        <p className="text-center mb-10 max-w-3xl mx-auto text-gray-300">
           Meet our top-rated professionals ready to serve you
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -55,11 +55,11 @@ export const FeaturedProviders = () => {
             >
               <CardHeader className="p-4">
                 <div className="flex items-center justify-between">
-                  <span className="px-2 py-1 bg-teal-100 text-xs rounded-full text-teal-800">
+                  <span className="px-2 py-1 bg-teal-900 text-xs rounded-full text-teal-200">
                     {provider.category}
                   </span>
                   {provider.verified && (
-                    <div className="flex items-center text-xs text-teal-600">
+                    <div className="flex items-center text-xs text-teal-400">
                       <CheckIcon className="w-3 h-3 mr-1" />
                       Verified
                     </div>
@@ -67,25 +67,25 @@ export const FeaturedProviders = () => {
                 </div>
               </CardHeader>
               <CardContent className="p-4 space-y-3">
-                <h3 className="font-bold text-xl text-gray-800">{provider.name}</h3>
+                <h3 className="font-bold text-xl text-white">{provider.name}</h3>
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
                     <StarIcon
                       key={i}
                       className={`w-4 h-4 ${
-                        i < Math.floor(provider.rating) ? "fill-current text-yellow-400" : "text-gray-300"
+                        i < Math.floor(provider.rating) ? "fill-current text-yellow-400" : "text-gray-500"
                       }`}
                     />
                   ))}
-                  <span className="ml-2 text-sm text-gray-600">
+                  <span className="ml-2 text-sm text-gray-300">
                     {provider.rating} ({provider.reviews} reviews)
                   </span>
                 </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <MapPinIcon className="w-4 h-4 mr-1 text-teal-600" />
+                <div className="flex items-center text-sm text-gray-300">
+                  <MapPinIcon className="w-4 h-4 mr-1 text-teal-400" />
                   {provider.location}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-300">
                   Experience: {provider.experience}
                 </div>
               </CardContent>

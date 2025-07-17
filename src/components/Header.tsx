@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MenuIcon, XIcon, UserIcon } from "lucide-react";
+import {
+  MenuIcon,
+  XIcon,
+  UserIcon,
+  HomeIcon,
+  WrenchIcon,
+  FolderIcon,
+  InfoIcon,
+} from "lucide-react";
 import { Button } from "./Button";
 
 export const Header = () => {
@@ -13,30 +21,44 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold text-teal-400">
-              Service Link
+            <Link to="/">
+              <img
+                src="/images/SL Logo.png"
+                alt="Service Link Logo"
+                className="w-50 h-11 object-contain"
+              />
             </Link>
           </div>
 
           {/* Centered Navigation Links */}
           <div className="flex-1 flex justify-center">
             <div className="hidden md:flex items-center space-x-6">
-              <Link to="/" className="hover:text-teal-400 transition duration-300">
+              <Link
+                to="/"
+                className="flex items-center hover:text-teal-400 transition duration-300"
+              >
+                <HomeIcon className="w-5 h-5 mr-2" />
                 Home
               </Link>
               <Link
                 to="/services"
-                className="hover:text-teal-400 transition duration-300"
+                className="flex items-center hover:text-teal-400 transition duration-300"
               >
+                <WrenchIcon className="w-5 h-5 mr-2" />
                 Services
               </Link>
               <Link
                 to="/categories"
-                className="hover:text-teal-400 transition duration-300"
+                className="flex items-center hover:text-teal-400 transition duration-300"
               >
+                <FolderIcon className="w-5 h-5 mr-2" />
                 Categories
               </Link>
-              <Link to="/about" className="hover:text-teal-400 transition duration-300">
+              <Link
+                to="/about"
+                className="flex items-center hover:text-teal-400 transition duration-300"
+              >
+                <InfoIcon className="w-5 h-5 mr-2" />
                 About
               </Link>
             </div>
@@ -48,8 +70,9 @@ export const Header = () => {
               <>
                 <Link
                   to="/profile"
-                  className="hover:text-teal-400 transition duration-300"
+                  className="flex items-center hover:text-teal-400 transition duration-300"
                 >
+                  <UserIcon className="w-5 h-5 mr-2" />
                   Profile
                 </Link>
                 <div
@@ -109,36 +132,40 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="block py-2 hover:bg-gray-700 px-2 rounded"
+                    className="flex items-center py-2 hover:bg-gray-700 px-2 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
+                    <HomeIcon className="w-5 h-5 mr-2" />
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/services"
-                    className="block py-2 hover:bg-gray-700 px-2 rounded"
+                    className="flex items-center py-2 hover:bg-gray-700 px-2 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
+                    <WrenchIcon className="w-5 h-5 mr-2" />
                     Services
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/categories"
-                    className="block py-2 hover:bg-gray-700 px-2 rounded"
+                    className="flex items-center py-2 hover:bg-gray-700 px-2 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
+                    <FolderIcon className="w-5 h-5 mr-2" />
                     Categories
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/about"
-                    className="block py-2 hover:bg-gray-700 px-2 rounded"
+                    className="flex items-center py-2 hover:bg-gray-700 px-2 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
+                    <InfoIcon className="w-5 h-5 mr-2" />
                     About
                   </Link>
                 </li>
@@ -148,9 +175,10 @@ export const Header = () => {
                   <>
                     <Link
                       to="/profile"
-                      className="block py-2 hover:bg-gray-700 px-2 rounded text-center"
+                      className="flex items-center py-2 hover:bg-gray-700 px-2 rounded text-center"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <UserIcon className="w-5 h-5 mr-2" />
                       Profile
                     </Link>
                     <Button
