@@ -3,11 +3,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const serviceImages = [
-  "/images/clean.jpg",
-  "/images/Plumber.jpg",
-  "/images/electrician-working.jpg",
-  "/images/landscape-gardener.jpg",
-  "/images/image-asset.jpg",
+  "clean.jpg",
+  "Plumber.jpg",
+  "electrician-working.jpg",
+  "landscape-gardener.jpg",
+  "image-asset.jpg",
 ];
 
 // Slide Show Settings
