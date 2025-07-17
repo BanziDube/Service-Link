@@ -7,10 +7,17 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
 dist
 dist-ssr
+build/              # Exclude build output (handled by Netlify)
+
+# Local environment files
 *.local
+.env                # Add to ignore environment variables
+.env.local
+.env.*.local
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +29,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# macOS system files
+._*
+
+# Optional: Ignore lock files if not needed for deployment
+# yarn.lock         # Uncomment if using npm instead of Yarn
+# package-lock.json # Uncomment if using Yarn instead of npm
+
+# Ensure static assets (e.g., images) in public are NOT ignored
+!public/
+!public/images/
