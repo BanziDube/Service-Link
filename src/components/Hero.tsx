@@ -1,6 +1,4 @@
 import Slider from "react-slick";
-import { Button } from "./Button";
-import { SearchIcon } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -16,13 +14,22 @@ const serviceImages = [
 export const Hero = () => {
   const settings = {
     dots: false,
-    infinite: true, // Ensures looping
+    infinite: true,
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     fade: true,
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const category = formData.get("category") as string;
+    const location = formData.get("location") as string;
+    console.log("Search:", { category, location });
+    // Add search logic here (e.g., filter services by category and location)
   };
 
   return (
@@ -48,30 +55,31 @@ export const Hero = () => {
           Connect with verified professionals for cleaning, repairs,
           landscaping, childcare, and more — all in one place.
         </p>
-        <div className="max-w-lg mx-auto bg-white p-4 rounded-lg border border-gray-300 shadow-sm">
-          <div className="flex gap-2">
+        <form
+          onSubmit={handleSearch}
+          className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg max-w-xl mx-auto"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <input
               type="text"
-              placeholder="What service do you need?"
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-md"
+              name="category"
+              placeholder="e.g., Cleaning, Plumbing..."
+              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400"
             />
-            <Button leftIcon={<SearchIcon />}>Search</Button>
+            <input
+              type="text"
+              name="location"
+              placeholder="e.g., Johannesburg, Cape Town..."
+              className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400"
+            />
+            <button
+              type="submit"
+              className="bg-teal-500 text-white p-2 rounded-md hover:bg-teal-600 transition duration-300"
+            >
+              Search
+            </button>
           </div>
-          <div className="mt-2 flex flex-wrap gap-2">
-            <span className="text-sm px-2 py-1 bg-gray-100 rounded-full">
-              Cleaning
-            </span>
-            <span className="text-sm px-2 py-1 bg-gray-100 rounded-full">
-              Plumbing
-            </span>
-            <span className="text-sm px-2 py-1 bg-gray-100 rounded-full">
-              Electrical
-            </span>
-            <span className="text-sm px-2 py-1 bg-gray-100 rounded-full">
-              Gardening
-            </span>
-          </div>
-        </div>
+        </form>
       </div>
     </section>
   );

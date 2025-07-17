@@ -11,62 +11,70 @@ import {
 export const ServiceCategories = () => {
   const categories = [
     {
-      icon: <HomeIcon className="w-8 h-8" />,
+      icon: <HomeIcon className="w-8 h-8 text-teal-600" />,
       title: "House Cleaning",
       description: "Regular & deep cleaning services",
-      backgroundColor: "bg-green-200",
+      colorClass: "bg-green-100 hover:bg-green-200",
     },
     {
-      icon: <WrenchIcon className="w-8 h-8" />,
+      icon: <WrenchIcon className="w-8 h-8 text-teal-600" />,
       title: "Repairs & Maintenance",
       description: "Plumbing, electrical & more",
-      backgroundColor: "bg-blue-400",
+      colorClass: "bg-blue-100 hover:bg-blue-200",
     },
     {
-      icon: <DropletIcon className="w-8 h-8" />,
+      icon: <DropletIcon className="w-8 h-8 text-teal-600" />,
       title: "Landscaping",
       description: "Gardening & lawn care",
-      backgroundColor: "bg-emerald-300",
+      colorClass: "bg-emerald-100 hover:bg-emerald-200",
     },
     {
-      icon: <HeartIcon className="w-8 h-8" />,
+      icon: <HeartIcon className="w-8 h-8 text-teal-600" />,
       title: "Childcare",
       description: "Babysitting & nanny services",
-      backgroundColor: "bg-pink-300",
+      colorClass: "bg-pink-100 hover:bg-pink-200",
     },
     {
-      icon: <ShirtIcon className="w-8 h-8" />,
+      icon: <ShirtIcon className="w-8 h-8 text-teal-600" />,
       title: "Laundry",
       description: "Washing & ironing services",
-      backgroundColor: "bg-purple-400",
+      colorClass: "bg-purple-100 hover:bg-purple-200",
     },
     {
-      icon: <UtensilsIcon className="w-8 h-8" />,
+      icon: <UtensilsIcon className="w-8 h-8 text-teal-600" />,
       title: "Cooking",
       description: "Personal chef & meal prep",
-      backgroundColor: "bg-orange-400",
+      colorClass: "bg-orange-100 hover:bg-orange-200",
     },
   ];
 
   return (
-    <section className="py-12 border-b border-gray-200">
+    <section className="py-16 border-b border-gray-200 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center">
-          Service Categories
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6">
+          Explore Service Categories
         </h2>
-        <p className="text-center mb-8 max-w-2xl mx-auto">
-          Browse our most popular service categories
+        <p className="text-center mb-10 max-w-3xl mx-auto text-gray-600">
+          Discover a wide range of trusted services tailored to your needs
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category, index) => (
-            <Card key={index} isClickable variant="outlined" className={category.backgroundColor}>
-              <CardContent className="flex items-center p-6">
-                <div className="mr-4 p-3 border border-gray-300 rounded-lg bg-white">
+            <Card
+              key={index}
+              isClickable
+              variant="outlined"
+              className={`transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${category.colorClass}`}
+              aria-label={`View ${category.title} services`}
+            >
+              <CardContent className="flex items-center p-6 space-x-4">
+                <div className="p-3 bg-white rounded-lg shadow-md">
                   {category.icon}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{category.title}</h3>
-                  <p className="text-sm">{category.description}</p>
+                  <h3 className="font-semibold text-xl text-gray-800">
+                    {category.title}
+                  </h3>
+                  <p className="text-gray-600">{category.description}</p>
                 </div>
               </CardContent>
             </Card>
