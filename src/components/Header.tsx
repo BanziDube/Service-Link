@@ -23,7 +23,7 @@ export const Header = () => {
           <div className="flex-shrink-0">
             <Link to="/">
               <img
-                src="/images/SL Logo.png"
+                src="/images/sl.png"
                 alt="Service Link Logo"
                 className="w-50 h-11 object-contain"
               />
