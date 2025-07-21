@@ -37,11 +37,11 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <Slider {...settings}>
           {serviceImages.map((src, index) => (
-            <div key={index}>
+            <div key={index} className="w-full h-[450px] md:h-[600px] lg:h-[700px] aspect-w-16 aspect-h-9">
               <img
                 src={src}
                 alt={`Service ${index + 1}`}
-                className="w-full h-[450px] object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}

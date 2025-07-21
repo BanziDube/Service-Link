@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   MenuIcon,
@@ -14,6 +14,21 @@ import { Button } from "./Button";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Mock auth state
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown state
+  const dropdownRef = useRef(null);
+
+  // Handle clicks outside the dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event: { target: any; }) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="bg-gray-800 text-white sticky top-0 z-50 shadow-lg">
@@ -23,7 +38,7 @@ export const Header = () => {
           <div className="flex-shrink-0">
             <Link to="/">
               <img
-                src="/images/sl.png"
+                src="/images/SL Logo.png"
                 alt="Service Link Logo"
                 className="w-50 h-11 object-contain"
               />
@@ -83,31 +98,29 @@ export const Header = () => {
                 </div>
               </>
             ) : (
-              <div className="relative group">
+              <div className="relative" ref={dropdownRef}>
                 <div
                   className="w-8 h-8 flex items-center justify-center bg-teal-400 rounded-full cursor-pointer"
-                  onClick={() => {/* Handle toggle or navigation */}}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
                   <UserIcon className="w-5 h-5 text-white" />
                 </div>
-                <div className="absolute right-0 mt-2 w-32 hidden group-hover:block bg-gray-800 text-white text-center rounded-md shadow-lg">
+                <div
+                  className={`absolute right-0 mt-2 w-32 bg-gray-800 text-white text-center rounded-md shadow-lg ${
+                    isDropdownOpen ? "block" : "hidden"
+                  }`}
+                >
                   <Link
                     to="/signin"
                     className="block px-4 py-2 hover:bg-gray-700"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // Navigate to Sign In
-                    }}
+                    onClick={() => setIsDropdownOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
                     to="/signup"
                     className="block px-4 py-2 hover:bg-gray-700"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // Navigate to Sign Up
-                    }}
+                    onClick={() => setIsDropdownOpen(false)}
                   >
                     Sign Up
                   </Link>

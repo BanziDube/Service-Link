@@ -49,7 +49,7 @@ export const ServiceCategories = () => {
   ];
 
   return (
-    <section className="py-16 border-b border-gray-200 bg-gray-50">
+    <section className="pt-[200px] md:pt-[360px] lg:pt-[416px] pb-16 border-b border-gray-200 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6">
           Explore Service Categories
